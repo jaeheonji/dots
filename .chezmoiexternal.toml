@@ -1,0 +1,19 @@
+[".tmux/plugins/tpm"]
+  type = "git-repo"
+  url = "https://github.com/tmux-plugins/tpm"
+  refreshPeriod = "168h"
+
+[".config/bat/themes/Catppuccin Mocha.tmTheme"]
+  type = "file"
+  url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme"
+  refreshPeriod = "168h"
+
+[".config/fish/themes/Catppuccin Mocha.theme"]
+  type = "file"
+  url = "https://github.com/catppuccin/fish/raw/main/themes/Catppuccin%20Mocha.theme"
+  refreshPeriod = "168h"
+
+[".config/delta/themes/catppuccin.gitconfig"]
+  type = "file"
+  url = "https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig"
+  refreshPeriod = "168h"
