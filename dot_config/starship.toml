@@ -18,6 +18,7 @@ disabled = false
 [username]
 format = "[  $user ]($style) in "
 style_user = "bold italic bg:yellow fg:base"
+show_always = true
 disabled = false
 
 # palette tables should be last in the config ⚓️
