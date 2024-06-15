@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre',
+    event = "BufWritePre",
     config = function()
       require "configs.conform"
     end,
@@ -17,31 +17,43 @@ return {
   },
 
   {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-  			"lua-language-server", "stylua",
-  			-- "html-lsp", "css-lsp" , "prettier"
-  		},
-  	},
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        -- "html-lsp", "css-lsp" , "prettier"
+      },
+    },
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       -- "html", "css"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        -- "html", "css"
+      },
+    },
   },
 
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
-    config = function ()
+    config = function()
       require "configs.copilot"
+    end,
+  },
+
+  {
+    "aserowy/tmux.nvim",
+    event = "VeryLazy",
+    config = function ()
+      -- require "configs.tmux"
+      require("tmux").setup()
     end
-  }
+  },
 }

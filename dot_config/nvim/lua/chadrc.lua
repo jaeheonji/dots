@@ -16,6 +16,10 @@ M.ui = {
     lazyload = false,
   },
 
+  cmp = {
+    style = "atom_colored",
+  },
+
   statusline = {
     theme = "default",
     separator_style = "block",
