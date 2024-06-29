@@ -1,0 +1,16 @@
+#!/bin/sh
+
+paru -S --needed fish git-delta lazygit github-cli bat eza zoxide \
+  starship lf-bin fd tmux ripgrep neovim unzip ouch duf
+{{ if eq .hosttype "hyprland" }}
+paru -S --needed hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland \
+  polkit-ggome tlp bluez bluez-utils upower brightnessctl sysstat \
+  hypridle hyprlock hyprpaper kime-bin nwg-look-bin \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-cascadia-code-nerd \
+  catppuccin-cursors-mocha catppuccin-gtk-theme-mocha papirus-folders-catppuccin-git
+
+paru -S --needed nodejs npm bun-bin dart-sass aylurs-gtk-shell \
+  alacritty firefox
+{{ else if eq .hosttype "terminal" }}
+paru -S --needed mise-bin
+{{ end }}

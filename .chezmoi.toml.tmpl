@@ -1,5 +1,9 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 
+{{- $choices := list "terminal" "hyprland" -}}
+{{- $hosttype := promptChoiceOnce . "hosttype" "What type of host are you on" $choices -}}
+
 [data]
   email = {{ $email | quote }}
+  hosttype = {{ $hosttype | quote }}
 

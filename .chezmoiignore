@@ -1,0 +1,5 @@
+{{- if ne .hosttype "hyprland" }}
+.config/alacritty
+.config/background
+.config/hypr
+{{- end }}
