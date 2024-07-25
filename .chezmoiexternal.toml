@@ -14,6 +14,10 @@
   type = "file"
   url = "https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig"
   refreshPeriod = "168h"
+[".config/btop/themes/catppuccin_mocha.theme"]
+  type = "file"
+  url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_mocha.theme"
+  refreshPeriod = "168h"
 {{- if eq .hosttype "hyprland" }}
 [".config/hypr/mocha.conf"]
   type = "file"

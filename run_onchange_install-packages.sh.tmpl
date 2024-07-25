@@ -1,5 +1,10 @@
 #!/bin/sh
 
+{{ if eq .chezmoi.os "darwin" -}}
+brew install fish git-delta bat eza zoxide starship fd ripgrep tmux neovim \
+  btop yazi
+{{ else }}
+
 paru -S --needed fish git-delta lazygit github-cli bat eza zoxide \
   starship lf-bin fd tmux ripgrep neovim unzip ouch duf
 {{ if eq .hosttype "hyprland" }}
@@ -13,4 +18,6 @@ paru -S --needed nodejs npm bun-bin dart-sass aylurs-gtk-shell \
   alacritty firefox
 {{ else if eq .hosttype "terminal" }}
 paru -S --needed mise-bin
+{{ end }}
+
 {{ end }}
