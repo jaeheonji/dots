@@ -3,23 +3,13 @@ palette = "catppuccin_mocha"
 
 [character]
 # Note the use of Catppuccin color 'maroon'
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
 
 [directory]
 truncation_length = 4
 # Catppuccin 'lavender'
-style = "bold blue"
-
-[hostname]
-style = "bold mauve"
-disabled = false
-
-[username]
-format = "[  $user ]($style) in "
-style_user = "bold italic bg:yellow fg:base"
-show_always = true
-disabled = false
+style = "bold lavender"
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_mocha]
