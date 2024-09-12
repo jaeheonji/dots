@@ -1,13 +1,13 @@
 #!/bin/sh
 
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" -}}
 brew install fish git-delta bat eza zoxide starship fd ripgrep tmux neovim \
   btop yazi
-{{ else }}
+{{- else }}
 
 paru -S --needed fish git-delta lazygit github-cli bat eza zoxide \
   starship lf-bin fd tmux ripgrep neovim unzip ouch duf
-{{ if eq .hosttype "hyprland" }}
+{{- if eq .hosttype "hyprland" }}
 paru -S --needed hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland \
   polkit-ggome tlp bluez bluez-utils upower brightnessctl sysstat \
   hypridle hyprlock hyprpaper kime-bin nwg-look-bin \
@@ -16,8 +16,11 @@ paru -S --needed hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland \
 
 paru -S --needed nodejs npm bun-bin dart-sass aylurs-gtk-shell \
   alacritty firefox
-{{ else if eq .hosttype "terminal" }}
+{{- else if eq .hosttype "terminal" }}
 paru -S --needed mise-bin
-{{ end }}
+{{- end }}
+{{- if eq .kube true }}
+paru -S --needed k9s kubectl helm rancher-k3d-bin
+{{- end }}
 
-{{ end }}
+{{- end }}

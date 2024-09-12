@@ -1,3 +1,3 @@
 local options = {}
 
-require("tmux").setup(options)
+return options

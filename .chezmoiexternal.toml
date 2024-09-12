@@ -28,3 +28,9 @@
   url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml"
   refreshPeriod = "168h"
 {{- end }}
+{{- if eq .kube true }}
+[".config/k9s/skins"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/catppuccin/k9s/main/dist/catppuccin-mocha-transparent.yaml"
+  refreshPeriod = "168h"
+{{- end }}
