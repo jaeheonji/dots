@@ -4,8 +4,6 @@
 {{- $hosttype := promptChoiceOnce . "hosttype" "What type of host are you on" $choices -}}
 {{- $kube := promptBoolOnce . "kube" "Would you like to configure kubernetes environment?" -}}
 
-{{- }}
-
 [data]
   email = {{ $email | quote }}
   hosttype = {{ $hosttype | quote }}
