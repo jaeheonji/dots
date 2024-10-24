@@ -24,15 +24,15 @@ return {
   -- },
 
   {
+    "aserowy/tmux.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
     opts = require "configs.copilot",
-  },
-
-  {
-    "aserowy/tmux.nvim",
-    event = "VeryLazy",
-    opts = require "configs.tmux",
   },
 }
