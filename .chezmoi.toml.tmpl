@@ -1,10 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 
-{{- $choices := list "terminal" "hyprland" -}}
-{{- $hosttype := promptChoiceOnce . "hosttype" "What type of host are you on" $choices -}}
-{{- $kube := promptBoolOnce . "kube" "Would you like to configure kubernetes environment?" -}}
+{{- $choices := list "default" "aqua" "hyprland" -}}
+{{- $profile := promptChoiceOnce . "profile" "What profile do you want to use?" $choices -}}
 
 [data]
   email = {{ $email | quote }}
-  hosttype = {{ $hosttype | quote }}
-  kube = {{ $kube | quote }}
+  profile = {{ $profile | quote }}

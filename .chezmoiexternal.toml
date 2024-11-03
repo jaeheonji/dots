@@ -18,19 +18,13 @@
   type = "file"
   url = "https://github.com/catppuccin/btop/raw/main/themes/catppuccin_mocha.theme"
   refreshPeriod = "168h"
-{{- if eq .hosttype "hyprland" }}
-[".config/hypr/mocha.conf"]
+[".config/k9s/skins/catppuccin-mocha-transparent.yaml"]
   type = "file"
-  url = "https://github.com/catppuccin/hyprland/raw/main/themes/mocha.conf"
+  url = "https://raw.githubusercontent.com/catppuccin/k9s/main/dist/catppuccin-mocha-transparent.yaml"
   refreshPeriod = "168h"
+{{- if ne .profile "default" }}
 [".config/alacritty/catppuccin-mocha.toml"]
   type = "file"
   url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml"
-  refreshPeriod = "168h"
-{{- end }}
-{{- if eq .kube true }}
-[".config/k9s/skins"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/catppuccin/k9s/main/dist/catppuccin-mocha-transparent.yaml"
   refreshPeriod = "168h"
 {{- end }}

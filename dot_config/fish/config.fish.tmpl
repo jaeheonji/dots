@@ -1,6 +1,10 @@
 if status is-interactive
   set -g fish_greeting
 
+  {{ if eq .chezmoi.os "darwin" -}}
+  /opt/homebrew/bin/brew shellenv | source
+  {{- end }}
+
   # Default environments
   set -gx EDITOR nvim
   set -gx VISUAL nvim
@@ -15,12 +19,8 @@ if status is-interactive
   alias ls="eza -h --icons --git"
   alias lt="ls --tree --level=2"
 
-  alias mc="lf -command 'set nopreview' -command 'set ratios 1'"
-
   # Init
   zoxide init fish | source
   starship init fish | source
-{{- if eq .hosttype "terminal" }}
   mise activate fish | source
-{{- end }}
 end

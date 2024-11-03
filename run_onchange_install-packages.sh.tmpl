@@ -1,26 +1,28 @@
 #!/bin/sh
 
-{{- if eq .chezmoi.os "darwin" -}}
-brew install fish git-delta bat eza zoxide starship fd ripgrep tmux neovim \
-  btop yazi
-{{- else }}
+{{ if eq .chezmoi.os "darwin" -}}
 
-paru -S --needed fish git-delta lazygit github-cli bat eza zoxide \
-  starship lf-bin fd tmux ripgrep neovim unzip ouch duf
-{{- if eq .hosttype "hyprland" }}
-paru -S --needed hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland \
-  polkit-ggome tlp bluez bluez-utils upower brightnessctl sysstat \
-  hypridle hyprlock hyprpaper kime-bin nwg-look-bin \
-  noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-cascadia-code-nerd \
-  catppuccin-cursors-mocha catppuccin-gtk-theme-mocha papirus-folders-catppuccin-git
+brew install fish git-delta bat eza zoxide starship fd ripgrep \
+  tmux neovim lazygit btop yazi mise
 
-paru -S --needed nodejs npm bun-bin dart-sass aylurs-gtk-shell \
-  alacritty firefox
-{{- else if eq .hosttype "terminal" }}
-paru -S --needed mise-bin
-{{- end }}
-{{- if eq .kube true }}
-paru -S --needed k9s kubectl helm rancher-k3d-bin
-{{- end }}
+{{/* Profile for Darwin */}}
+{{- if eq .profile "aqua" -}}
+
+brew install --cask aerospace alacritty raycast \
+  font-caskaydia-cove-nerd-font
+
+{{- end -}}
+
+{{ else if eq .chezmoi.os "linux" -}}
+
+paru -S --needed --noconfirm fish git-delta bat eza zoxide starship fd ripgrep \
+  tmux neovim btop yazi lazygit ouch openssh mise-bin
+
+{{/* Profile for Linux */}}
+{{- if eq .profile "hyprland" -}}
+
+paru -S --needed --noconfirm alacritty
+
+{{- end -}}
 
 {{- end }}

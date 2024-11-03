@@ -1,5 +1,11 @@
-{{- if ne .hosttype "hyprland" }}
+.config/lf
+
+{{- if eq .profile "default" -}}
 .config/alacritty
-.config/background
-.config/hypr
+{{- end -}}
+
+{{ if ne .profile "aqua" -}}
+.config/aerospace
+.config/borders
+.config/sketchybar
 {{- end }}
