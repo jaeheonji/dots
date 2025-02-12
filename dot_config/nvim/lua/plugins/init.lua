@@ -5,6 +5,11 @@ return {
     opts = require "configs.conform",
   },
 
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvim-tree",
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -34,5 +39,15 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = require "configs.copilot",
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    ft = "markdown",
+    opts = {},
   },
 }
