@@ -1,26 +1,18 @@
 if status is-interactive
-  set -g fish_greeting
+    set -g fish_greeting
 
-  {{ if eq .chezmoi.os "darwin" -}}
-  /opt/homebrew/bin/brew shellenv | source
-  {{- end }}
+    {{ if eq .chezmoi.os "darwin" -}}
+    /opt/homebrew/bin/brew shellenv | source
+    {{- end }}
 
-  # Default environments
-  set -gx EDITOR nvim
-  set -gx VISUAL nvim
-  set -gx SHELL fish
+    # Default environments
+    set -gx EDITOR nvim
+    set -gx VISUAL nvim
 
-  set -gx NPM_CONFIG_CACHE $HOME/.cache/npm
-  set -gx GOPATH $HOME/.local/share/go
+    set -gx NPM_CONFIG_CACHE $HOME/.cache/npm
+    set -gx GOPATH $HOME/.local/share/go
 
-  # Alias
-  alias lg="lazygit"
-
-  alias ls="eza -h --icons --git"
-  alias lt="ls --tree --level=2"
-
-  # Init
-  zoxide init fish | source
-  starship init fish | source
-  mise activate fish | source
+    fzf --fish | source
+    starship init fish | source
+    zoxide init fish | source
 end

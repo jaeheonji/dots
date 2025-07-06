@@ -3,7 +3,7 @@
 {{ if eq .chezmoi.os "darwin" -}}
 
 brew install fish git-delta bat eza zoxide starship fd ripgrep \
-  tmux neovim lazygit btop yazi mise
+  tmux neovim lazygit mise
 
 {{/* Profile for Darwin */}}
 {{- if eq .profile "aqua" -}}
@@ -15,8 +15,8 @@ brew install --cask aerospace alacritty raycast \
 
 {{ else if eq .chezmoi.os "linux" -}}
 
-paru -S --needed --noconfirm fish git-delta bat eza zoxide starship fd ripgrep \
-  tmux neovim btop yazi lazygit ouch openssh
+paru -S --needed --noconfirm openssh fish git-delta bat zoxide \
+  starship fd ripgrep tmux neovim lazygit ouch github-cli
 
 {{/* Profile for Linux */}}
 {{- if eq .profile "hyprland" -}}
