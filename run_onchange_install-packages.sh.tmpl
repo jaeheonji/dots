@@ -16,7 +16,7 @@ brew install --cask aerospace alacritty raycast \
 {{ else if eq .chezmoi.os "linux" -}}
 
 paru -S --needed --noconfirm openssh fish git-delta bat zoxide \
-  starship fd ripgrep tmux neovim lazygit ouch github-cli
+  starship fd ripgrep tmux neovim lazygit ouch github-cli fzf
 
 {{/* Profile for Linux */}}
 {{- if eq .profile "hyprland" -}}
