@@ -5,11 +5,6 @@ return {
     opts = require "configs.conform",
   },
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require "configs.nvim-tree",
-  },
-
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -18,20 +13,29 @@ return {
     end,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  -- test new blink
+  { import = "nvchad.blink.lazyspec" },
+
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "Exafunction/windsurf.nvim",
+      "giuxtaposition/blink-cmp-copilot",
+    },
+    opts = require "configs.blink",
+  },
 
   {
     "aserowy/tmux.nvim",
     event = "VeryLazy",
     opts = {},
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+    ft = { "markdown", "Avante" },
+    opts = require "configs.markdown",
   },
 
   {
@@ -42,23 +46,45 @@ return {
   },
 
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    cmd = "CopilotChat",
-    opts = require "configs.copilot-chat",
+    "Exafunction/windsurf.nvim",
+    event = "InsertEnter",
+    config = function()
+      require "configs.windsurf"
+    end,
   },
 
   {
-    "MeanderingProgrammer/render-markdown.nvim",
+    "yetone/avante.nvim",
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    -- ⚠️ must add this setting! ! !
+    build = "make",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "MeanderingProgrammer/render-markdown.nvim",
     },
-    ft = "markdown",
-    opts = {},
+    keys = {
+      {
+        "<leader>a+",
+        function()
+          local tree_ext = require "avante.extensions.nvim_tree"
+          tree_ext.add_file()
+        end,
+        desc = "Select file in NvimTree",
+        ft = "NvimTree",
+      },
+      {
+        "<leader>a-",
+        function()
+          local tree_ext = require "avante.extensions.nvim_tree"
+          tree_ext.remove_file()
+        end,
+        desc = "Remove file in NvimTree",
+        ft = "NvimTree",
+      },
+    },
+    opts = require "configs.avante",
   },
 }
