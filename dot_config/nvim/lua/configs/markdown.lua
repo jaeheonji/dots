@@ -1,5 +1,5 @@
 local options = {
-  file_types = { "markdown", "Avante" },
+  file_types = { "markdown", "codecompanion" },
 }
 
 return options

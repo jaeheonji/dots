@@ -26,6 +26,13 @@ return {
   },
 
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = require "configs.noice",
+  },
+
+  {
     "aserowy/tmux.nvim",
     event = "VeryLazy",
     opts = {},
@@ -34,7 +41,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
-    ft = { "markdown", "Avante" },
+    ft = { "markdown", "codecompanion" },
     opts = require "configs.markdown",
   },
 
@@ -54,37 +61,8 @@ return {
   },
 
   {
-    "yetone/avante.nvim",
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    -- ⚠️ must add this setting! ! !
-    build = "make",
+    "olimorris/codecompanion.nvim",
     event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "MeanderingProgrammer/render-markdown.nvim",
-    },
-    keys = {
-      {
-        "<leader>a+",
-        function()
-          local tree_ext = require "avante.extensions.nvim_tree"
-          tree_ext.add_file()
-        end,
-        desc = "Select file in NvimTree",
-        ft = "NvimTree",
-      },
-      {
-        "<leader>a-",
-        function()
-          local tree_ext = require "avante.extensions.nvim_tree"
-          tree_ext.remove_file()
-        end,
-        desc = "Remove file in NvimTree",
-        ft = "NvimTree",
-      },
-    },
-    opts = require "configs.avante",
+    opts = require "configs.codecompanion",
   },
 }
