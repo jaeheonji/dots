@@ -7,7 +7,6 @@ local M = {}
 
 M.base46 = {
   theme = "catppuccin",
-  transparency = true,
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -17,12 +16,11 @@ M.base46 = {
 
 M.nvdash = { load_on_startup = true }
 M.ui = {
-  statusline = {
-    theme = "minimal",
-  },
-  tabufline = {
-    lazyload = false,
-  },
+  -- tabufline = {
+  --   lazyload = false,
+  -- },
+
+  statusline = { theme = "vscode_colored" },
 }
 
 return M

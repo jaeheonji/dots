@@ -5,11 +5,6 @@ return {
     opts = require "configs.conform",
   },
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require "configs.nvim-tree",
-  },
-
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -18,20 +13,36 @@ return {
     end,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  -- test new blink
+  { import = "nvchad.blink.lazyspec" },
+
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "Exafunction/windsurf.nvim",
+      "giuxtaposition/blink-cmp-copilot",
+    },
+    opts = require "configs.blink",
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = require "configs.noice",
+  },
 
   {
     "aserowy/tmux.nvim",
     event = "VeryLazy",
     opts = {},
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+    ft = { "markdown", "codecompanion" },
+    opts = require "configs.markdown",
   },
 
   {
@@ -42,23 +53,16 @@ return {
   },
 
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    cmd = "CopilotChat",
-    opts = require "configs.copilot-chat",
+    "Exafunction/windsurf.nvim",
+    event = "InsertEnter",
+    config = function()
+      require "configs.windsurf"
+    end,
   },
 
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    ft = "markdown",
-    opts = {},
+    "olimorris/codecompanion.nvim",
+    event = "VeryLazy",
+    opts = require "configs.codecompanion",
   },
 }
