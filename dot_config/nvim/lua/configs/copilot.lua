@@ -4,8 +4,8 @@ local options = {
   },
 
   suggestion = {
-    enabled = false,
-    auto_trigger = false,
+    enabled = true,
+    auto_trigger = true,
   },
 
   filetypes = {

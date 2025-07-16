@@ -19,7 +19,6 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = {
-      "Exafunction/windsurf.nvim",
       "giuxtaposition/blink-cmp-copilot",
     },
     opts = require "configs.blink",
@@ -30,6 +29,45 @@ return {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = require "configs.noice",
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = require "configs.snacks",
+    keys = {
+      -- Snacks.lazygit
+      {
+        "<LEADER>gg",
+        function()
+          Snacks.lazygit()
+        end,
+        desc = "Toggle LazyGit",
+      },
+      -- Snacks.words
+      {
+        "]]",
+        function()
+          Snacks.words.jump(vim.v.count1)
+        end,
+        desc = "Next Reference",
+        mode = { "n", "t" },
+      },
+      {
+        "[[",
+        function()
+          Snacks.words.jump(-vim.v.count1)
+        end,
+        desc = "Prev Reference",
+        mode = { "n", "t" },
+      },
+    },
+  },
+
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
   },
 
   {
@@ -54,6 +92,7 @@ return {
 
   {
     "Exafunction/windsurf.nvim",
+    enabled = false,
     event = "InsertEnter",
     config = function()
       require "configs.windsurf"
@@ -64,5 +103,30 @@ return {
     "olimorris/codecompanion.nvim",
     event = "VeryLazy",
     opts = require "configs.codecompanion",
+  },
+
+  {
+    "mrcjkb/rustaceanvim",
+    ft = { "rust" },
+    config = function()
+      require "configs.rustaceanvim"
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    ft = { "c", "cpp", "rust", "zig" },
+    config = function()
+      require "configs.dap"
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    ft = { "c", "cpp", "rust", "zig" },
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      require "configs.dap-ui"
+    end,
   },
 }
